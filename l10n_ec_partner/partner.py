@@ -57,6 +57,10 @@ class ResPartner(models.Model):
     ], string='Persona', required=True, default='9')
     is_company = fields.Boolean(default=True)
 
+    @api.model
+    def _commercial_fields(self):
+        return super(ResPartner, self)._commercial_fields() + ['type_ced_ruc']
+
     @api.multi
     def check_vat(self):
         for rec in self.filtered(lambda r: r.vat):
