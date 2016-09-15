@@ -27,8 +27,8 @@ def fix_ced_ruc(cr):
 
 def fix_vat_unique(cr):
     _logger.info('Eliminando resticción de unicidad del identificador...')
-    cr.execute(
-        'ALTER TABLE res_partner DROP CONSTRAINT res_partner_partner_unique')
+    cr.execute("""ALTER TABLE res_partner
+                  DROP CONSTRAINT IF EXISTS res_partner_partner_unique""")
 
 
 def migrate(cr, version):
