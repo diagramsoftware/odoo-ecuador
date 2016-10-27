@@ -32,7 +32,7 @@
         <record id="view_res_partner_cedruc_form" model="ir.ui.view">
             <field name="name">res.partner.cedruc.form</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base_vat.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//label[@for='name']" position="attributes">
                     <attribute name="string">Razón Social</attribute>
