@@ -12,7 +12,6 @@
     ],
     'depends': [
         'purchase',
-        'l10n_ec_authorisation',
         'l10n_ec_withdrawing',
     ],
     'installable': True,
