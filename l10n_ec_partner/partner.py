@@ -49,7 +49,7 @@ class ResPartner(models.Model):
     type_ced_ruc = fields.Selection([
         ('cedula', 'CEDULA'),
         ('ruc', 'RUC'),
-        ('pasaporte', 'PASAPORTE')
+        ('pasaporte', 'PASAPORTE / IDENTIFICADOR EXTRANJERO')
     ], string='Tipo ID')
     tipo_persona = fields.Selection([
         ('6', 'Persona Natural'),
