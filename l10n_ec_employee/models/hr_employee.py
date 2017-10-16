@@ -86,8 +86,9 @@ class HrEmployee(models.Model):
             vals['name'] = self._get_name(vals['lastname'], vals['firstname'])
 
         elif vals.get('name'):
-            vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] = self.split_name(vals['name'])['firstname']
+            lastname, firstname = self.split_name(vals['name'])
+            vals['lastname'] = lastname
+            vals['firstname'] = firstname
         res = super(HrEmployee, self).create(vals)
         return res
 
@@ -98,8 +99,9 @@ class HrEmployee(models.Model):
             firstname = vals.get('firstname') or self.firstname or ' '
             vals['name'] = self._get_name(lastname, firstname)
         elif vals.get('name'):
-            vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] = self.split_name(vals['name'])['firstname']
+            lastname, firstname = self.split_name(vals['name'])
+            vals['lastname'] = lastname
+            vals['firstname'] = firstname
         res = super(HrEmployee, self).write(vals)
 #        if set(vals).intersection(UPDATE_PARTNER_FIELDS):
 #            self._update_partner_firstname(self)
