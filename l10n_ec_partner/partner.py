@@ -137,6 +137,13 @@ class ResPartner(models.Model):
         except urllib2.HTTPError:  # 500
             return False
 
+    @api.model
+    def create(self, vals):
+        if 'parent_id' in vals.keys():
+            if vals.get('parent_id', False):
+                vals['is_company'] = False
+        return super(ResPartner, self).create(vals)
+
 
 class ResCompany(models.Model):
     _inherit = 'res.company'
